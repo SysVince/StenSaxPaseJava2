@@ -42,7 +42,6 @@ public class Main {
                 }
                 case 2 -> avsluta = false;
             }
-
         }
 
     }
