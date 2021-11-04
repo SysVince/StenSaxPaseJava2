@@ -25,20 +25,10 @@ public class Main {
 
                     if (playerNumber == compNumber) {
                         System.out.println("Det blev lika");
-                    } else if (playerNumber == 1 && compNumber == 2) {
-                        System.out.println("Du vann! Du valde sten och datorn valde sax");
-                    } else if (playerNumber == 1) {
-                        System.out.println("Du förlorade! Du valde sten och datorn valde påse");
-                    } else if (playerNumber == 2 && compNumber == 1) {
-                        System.out.println("Du förlorade! Du valde sax och datorn valde sten");
-                    } else if (playerNumber == 2) {
-                        System.out.println("Du vann! du valde sax och datorn valde påse");
-                    } else if (playerNumber == 3 && compNumber == 1) {
-                        System.out.println("Du vann! DU valde påse och datorn valde sten");
-                    } else if (playerNumber == 3) {
-                        System.out.println("Du förlorade! Du valde påse och datorn valde sax");
-                    } else
-                        System.out.println("Det blev något fel!");
+                    } else if ((playerNumber == 1 && compNumber == 2) || (playerNumber == 2 && compNumber == 3) || (playerNumber == 3 && compNumber == 1)) {
+                        System.out.println("Du vann!");
+                    } else System.out.println("Du förlorade!");
+
                 }
                 case 2 -> avsluta = false;
             }
