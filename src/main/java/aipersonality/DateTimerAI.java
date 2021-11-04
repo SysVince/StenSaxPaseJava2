@@ -16,6 +16,5 @@ public class DateTimerAI implements Personality {
             return GameChoice.PAPER;
         } else return GameChoice.SCISSORS;
 
-
     }
 }
