@@ -18,7 +18,8 @@ public class Main {
                     int playerNumber = scanner.nextInt();
 
                     Random rand = new Random();
-                    int compNumber = rand.nextInt(3) + 1;
+
+                    int compNumber = rand.nextInt(3)+1;
                     System.out.println("datorns nummer:" + compNumber);
 
                     System.out.println(compNumber);
@@ -36,4 +37,22 @@ public class Main {
 
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
