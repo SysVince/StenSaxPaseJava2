@@ -8,7 +8,6 @@ public class Main {
         boolean avsluta = true;
         System.out.println("Välkommen till StenSaxPåse Diamond Tournament");
 
-
         while (avsluta) {
 
             System.out.println("1: för att spela -- 2: för att avsluta");
