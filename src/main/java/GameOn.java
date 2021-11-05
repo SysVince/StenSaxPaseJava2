@@ -1,3 +1,6 @@
+import aipersonality.GameChoice;
+import aipersonality.Playable;
+
 import java.util.Random;
 import java.util.Scanner;
 

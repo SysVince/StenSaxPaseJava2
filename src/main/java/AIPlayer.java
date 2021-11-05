@@ -1,8 +1,8 @@
 import aipersonality.Playable;
 
 public class AIPlayer {
-    String name;
-    Playable playable;
+   private String name;
+    private Playable playable;
 
     public AIPlayer(String name, Playable playable) {
         this.name = name;

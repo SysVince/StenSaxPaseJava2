@@ -1,6 +1,4 @@
-import aipersonality.DateTimerBot;
-import aipersonality.RandomizerBot;
-import aipersonality.VocalistBot;
+import aipersonality.*;
 
 import java.util.Scanner;
 
@@ -12,7 +10,7 @@ public class Main {
         GameOn gameOn = new GameOn();
         AIPlayer timerNoob = new AIPlayer("TimerNoob", new DateTimerBot());
         AIPlayer theRandomizer = new AIPlayer("TheRandomizer", new RandomizerBot());
-
+       // AIPlayer player = new AIPlayer("Theplayer",new PlayerBot());
 
 
 
