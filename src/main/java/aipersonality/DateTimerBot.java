@@ -2,19 +2,18 @@ package aipersonality;
 
 import java.time.LocalTime;
 
-public class DateTimerAI_2 implements Playable {
+public class DateTimerBot implements Playable {
 
 
     @Override
     public GameChoice play() {
         LocalTime localTime = LocalTime.now();
         int minute = localTime.getMinute();
-        if (minute % 3 == 0) {
+        if (minute < 20) {
             return GameChoice.ROCK;
-        } else if (minute % 3 == 1) {
+        } else if (minute < 40) {
             return GameChoice.PAPER;
-        } else return GameChoice.SCISSORS; //minute % 3 == 2
-
+        } else return GameChoice.SCISSORS;
 
     }
 }

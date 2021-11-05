@@ -1,6 +1,5 @@
 package aipersonality;
 
-import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
 
@@ -13,31 +12,31 @@ public class DateTimerAITest {
     @Test
     @Ignore
     public void testDateTimer() {
-        DateTimerAI dateTimerAI = new DateTimerAI();
-        GameChoice gameChoice = dateTimerAI.play();
+        DateTimerBot dateTimerBot = new DateTimerBot();
+        GameChoice gameChoice = dateTimerBot.play();
         assertEquals(SCISSORS, gameChoice);
     }
 
     @Test
     @Ignore
     public void testDateTimer2() {
-        DateTimerAI_2 dateTimerAI_2 = new DateTimerAI_2();
-        GameChoice gameChoice = dateTimerAI_2.play();
+        DateTimerBotV2 dateTimerBotV2 = new DateTimerBotV2();
+        GameChoice gameChoice = dateTimerBotV2.play();
         assertEquals(ROCK, gameChoice);
     }
 
     @Test
     @Ignore
     public void testRandomizer() {
-        RandomizerAI randomizerAI = new RandomizerAI();
-        GameChoice gameChoice = randomizerAI.play();
+        RandomizerBot randomizerBot = new RandomizerBot();
+        GameChoice gameChoice = randomizerBot.play();
         assertEquals(SCISSORS,gameChoice);
     }
 
     @Test
     public void testVocalist(){
-        VocalistAI vocalistAI = new VocalistAI("femvokaleer");
-        GameChoice gameChoice = vocalistAI.play();
+        VocalistBot vocalistBot = new VocalistBot("femvokaleer");
+        GameChoice gameChoice = vocalistBot.play();
         assertEquals(SCISSORS,gameChoice);
     }
 

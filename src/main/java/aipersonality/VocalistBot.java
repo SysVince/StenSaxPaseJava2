@@ -4,11 +4,11 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Stream;
 
-public class VocalistAI implements Playable {
+public class VocalistBot implements Playable {
     String playerName;
     int playerVocals = 0;
 
-    public VocalistAI(String playerName) {
+    public VocalistBot(String playerName) {
         this.playerName = playerName;
     }
 

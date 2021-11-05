@@ -1,8 +1,7 @@
-import aipersonality.DateTimerAI;
-import aipersonality.RandomizerAI;
-import aipersonality.VocalistAI;
+import aipersonality.DateTimerBot;
+import aipersonality.RandomizerBot;
+import aipersonality.VocalistBot;
 
-import java.util.Random;
 import java.util.Scanner;
 
 public class Main {
@@ -11,8 +10,9 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         GameOn gameOn = new GameOn();
-        AIPlayer timerNoob = new AIPlayer("TimerNoob", new DateTimerAI());
-        AIPlayer theRandomizer = new AIPlayer("TheRandomizer", new RandomizerAI());
+        AIPlayer timerNoob = new AIPlayer("TimerNoob", new DateTimerBot());
+        AIPlayer theRandomizer = new AIPlayer("TheRandomizer", new RandomizerBot());
+
 
 
 
@@ -20,7 +20,7 @@ public class Main {
         System.out.println("What's your player name?");
 
         String playerName = scanner.next();
-        AIPlayer theVocalist = new AIPlayer("TheVocalist", new VocalistAI(playerName));
+        AIPlayer theVocalist = new AIPlayer("TheVocalist", new VocalistBot(playerName));
 
 
         gameOn.playGame();
