@@ -14,7 +14,7 @@ public class VocalistBot implements Playable {
 
     @Override
     public GameChoice play() {
-        Pattern pattern = Pattern.compile("[aouåeiyäö]");
+        Pattern pattern = Pattern.compile("[aouåeiyäöAOUÅEIYÄÖ]");
         Matcher matcher = pattern.matcher(playerName);
 
         while (matcher.find()) {

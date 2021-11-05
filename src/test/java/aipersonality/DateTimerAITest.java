@@ -35,7 +35,7 @@ public class DateTimerAITest {
 
     @Test
     public void testVocalist(){
-        VocalistBot vocalistBot = new VocalistBot("femvokaleer");
+        VocalistBot vocalistBot = new VocalistBot("NEFARIOOOON");
         GameChoice gameChoice = vocalistBot.play();
         assertEquals(SCISSORS,gameChoice);
     }
