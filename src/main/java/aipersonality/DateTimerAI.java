@@ -1,9 +1,8 @@
 package aipersonality;
 
-import java.time.Instant;
 import java.time.LocalTime;
 
-public class DateTimerAI implements Personality {
+public class DateTimerAI implements Playable {
 
 
     @Override

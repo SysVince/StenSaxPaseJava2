@@ -26,6 +26,21 @@ public class DateTimerAITest {
         assertEquals(ROCK, gameChoice);
     }
 
+    @Test
+    @Ignore
+    public void testRandomizer() {
+        RandomizerAI randomizerAI = new RandomizerAI();
+        GameChoice gameChoice = randomizerAI.play();
+        assertEquals(SCISSORS,gameChoice);
+    }
+
+    @Test
+    public void testVocalist(){
+        VocalistAI vocalistAI = new VocalistAI("femvokaleer");
+        GameChoice gameChoice = vocalistAI.play();
+        assertEquals(SCISSORS,gameChoice);
+    }
+
 
 
 

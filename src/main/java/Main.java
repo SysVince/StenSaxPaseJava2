@@ -7,16 +7,21 @@ import java.util.Scanner;
 
 public class Main {
 
+
     public static void main(String[] args) {
-
-        AIPlayer aiPlayer1 = new AIPlayer("Timerv1", new DateTimerAI());
-        AIPlayer aiPlayer2 = new AIPlayer("TheVocalist", new VocalistAI());
-        AIPlayer aiPlayer3 = new AIPlayer("TheRandomizer", new RandomizerAI());
-
-
-
+        Scanner scanner = new Scanner(System.in);
         GameOn gameOn = new GameOn();
-        System.out.println("Välkommen till StenSaxPåse Diamond Tournament");
+        AIPlayer timerNoob = new AIPlayer("TimerNoob", new DateTimerAI());
+        AIPlayer theRandomizer = new AIPlayer("TheRandomizer", new RandomizerAI());
+
+
+
+        System.out.println("Welcome to Stone-Paper-Scissors Diamond Tournament!");
+        System.out.println("What's your player name?");
+
+        String playerName = scanner.next();
+        AIPlayer theVocalist = new AIPlayer("TheVocalist", new VocalistAI(playerName));
+
 
         gameOn.playGame();
 

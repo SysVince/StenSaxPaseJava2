@@ -1,6 +1,6 @@
 package aipersonality;
 
-public interface Personality {
+public interface Playable {
 
     GameChoice play();
 

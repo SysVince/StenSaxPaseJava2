@@ -2,9 +2,8 @@ package aipersonality;
 
 import java.time.LocalTime;
 
-public class DateTimerAI_2 implements Personality {
+public class DateTimerAI_2 implements Playable {
 
-//TODO; modulus 0 1 2 för minut
 
     @Override
     public GameChoice play() {

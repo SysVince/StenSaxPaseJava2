@@ -1,8 +1,30 @@
 package aipersonality;
 
-public class VocalistAI implements Personality{
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import java.util.stream.Stream;
+
+public class VocalistAI implements Playable {
+    String playerName;
+    int playerVocals = 0;
+
+    public VocalistAI(String playerName) {
+        this.playerName = playerName;
+    }
+
     @Override
     public GameChoice play() {
-        return null;
+        Pattern pattern = Pattern.compile("[aouåeiyäö]");
+        Matcher matcher = pattern.matcher(playerName);
+
+        while (matcher.find()) {
+            playerVocals++;
+        }
+
+        if (playerVocals < 3) {
+            return GameChoice.ROCK;
+        } else if (playerVocals < 4) {
+            return GameChoice.PAPER;
+        } else return GameChoice.SCISSORS;
     }
 }

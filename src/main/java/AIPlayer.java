@@ -1,19 +1,19 @@
-import aipersonality.Personality;
+import aipersonality.Playable;
 
 public class AIPlayer {
     String name;
-    Personality personality;
+    Playable playable;
 
-    public AIPlayer(String name, Personality personality) {
+    public AIPlayer(String name, Playable playable) {
         this.name = name;
-        this.personality = personality;
+        this.playable = playable;
     }
 
     public String getName() {
         return name;
     }
 
-    public Personality getPersonality() {
-        return personality;
+    public Playable getPlayable() {
+        return playable;
     }
 }
