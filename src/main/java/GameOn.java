@@ -25,15 +25,15 @@ public class GameOn {
 
         System.out.println("****LET THE GAMES BEGIN!!****");
         gameOn.playGame(theRandomizer,player);
-        Thread.sleep(1000);
+        Thread.sleep(500);
         gameOn.playGame(timerPro,player);
-        Thread.sleep(1000);
+        Thread.sleep(500);
         gameOn.playGame(theVocalist,player);
-        Thread.sleep(1000);
+        Thread.sleep(500);
         gameOn.playGame(theVocalist,theRandomizer);
-        Thread.sleep(1000);
+        Thread.sleep(500);
         gameOn.playGame(timerPro,theRandomizer);
-        Thread.sleep(1000);
+        Thread.sleep(500);
         gameOn.playGame(theVocalist,timerPro);
 
         System.out.println("randomizer:"+theRandomizer.getScore());
@@ -62,7 +62,7 @@ public class GameOn {
     public void playGame(Participant player1, Participant player2) {
 
 
-        System.out.printf("\n%s vs %s\n",player1.getName(),player2.getName());
+        System.out.printf("\n%s VS %s\n",player1.getName(),player2.getName());
 
             GameChoice play1 = player1.getPlayable().play();
             GameChoice play2 = player2.getPlayable().play();
@@ -76,10 +76,10 @@ public class GameOn {
             } else if ((play1.equals(GameChoice.ROCK) && play2.equals(GameChoice.SCISSORS)) ||
                     (play1.equals(GameChoice.SCISSORS) && play2.equals(GameChoice.PAPER)) ||
                     (play1.equals(GameChoice.PAPER) && play2.equals(GameChoice.ROCK))) {
-                System.out.println(player1.getName() + " won the game");
+                System.out.println(player1.getName() + " Won the game");
                 player1.setScore(3);
             } else {
-                System.out.println(player2.getName() + " won the game");
+                System.out.println(player2.getName() + " Won the game");
                 player2.setScore(3);
             }
         }
