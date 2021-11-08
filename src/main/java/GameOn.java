@@ -4,7 +4,9 @@ import java.util.*;
 import java.util.stream.Stream;
 
 public class GameOn {
-    List<String> tournamentRanking = new ArrayList<>();
+    Highscore highscore = new Highscore();
+    List<String> tournamentUnRanked = new ArrayList<>();
+    List<String> tournamentRanked = new ArrayList<>();
 
 
     public void gameSetup() throws InterruptedException {
@@ -25,15 +27,15 @@ public class GameOn {
 
         System.out.println("****LET THE GAMES BEGIN!!****");
         gameOn.playGame(theRandomizer,player);
-        Thread.sleep(500);
+//        Thread.sleep(500);
         gameOn.playGame(timerPro,player);
-        Thread.sleep(500);
+//        Thread.sleep(500);
         gameOn.playGame(theVocalist,player);
-        Thread.sleep(500);
+//        Thread.sleep(500);
         gameOn.playGame(theVocalist,theRandomizer);
-        Thread.sleep(500);
+//        Thread.sleep(500);
         gameOn.playGame(timerPro,theRandomizer);
-        Thread.sleep(500);
+//        Thread.sleep(500);
         gameOn.playGame(theVocalist,timerPro);
 
         System.out.println("randomizer:"+theRandomizer.getScore());
@@ -52,12 +54,25 @@ public class GameOn {
         playOff(sortMatchup.get(2),sortMatchup.get(3));
 
 
-        tournamentRanking.forEach(System.out::println);
-
-
-
+        tournamentUnRanked.forEach(System.out::println);
+        rankPlayers(tournamentUnRanked);
+        tournamentUnRanked.clear();
 
     }
+
+    public void rankPlayers(List<String> tournamentUnRanked){
+        int j = 1;
+        for (String str : tournamentUnRanked) {
+            str = j + ": " + str;
+            tournamentRanked.add(str);
+            j++;
+        }
+
+        highscore.addTournamentScore(new ArrayList<>(tournamentRanked));
+        tournamentRanked.clear();
+
+    }
+
 
     public void playGame(Participant player1, Participant player2) {
 
@@ -71,16 +86,16 @@ public class GameOn {
 
             if (play1 == play2) {
                 System.out.println("It is a tie!");
-                player1.setScore(1);
-                player2.setScore(1);
+                player1.addScore(1);
+                player2.addScore(1);
             } else if ((play1.equals(GameChoice.ROCK) && play2.equals(GameChoice.SCISSORS)) ||
                     (play1.equals(GameChoice.SCISSORS) && play2.equals(GameChoice.PAPER)) ||
                     (play1.equals(GameChoice.PAPER) && play2.equals(GameChoice.ROCK))) {
                 System.out.println(player1.getName() + " Won the game");
-                player1.setScore(3);
+                player1.addScore(3);
             } else {
                 System.out.println(player2.getName() + " Won the game");
-                player2.setScore(3);
+                player2.addScore(3);
             }
         }
 
@@ -105,26 +120,26 @@ public class GameOn {
                    int randomNum = random.nextInt(2)+1;
                     if (randomNum == 1) {
                         System.out.println(player1.getName() + " Won the match!");
-                        tournamentRanking.add(player1.getName());
-                        tournamentRanking.add(player2.getName());
+                        tournamentUnRanked.add(player1.getName());
+                        tournamentUnRanked.add(player2.getName());
                     } else {
                         System.out.println(player2.getName() + " Won the match!");
-                        tournamentRanking.add(player2.getName());
-                        tournamentRanking.add(player1.getName());
+                        tournamentUnRanked.add(player2.getName());
+                        tournamentUnRanked.add(player1.getName());
                     }
                 }
             } else if ((play1.equals(GameChoice.ROCK) && play2.equals(GameChoice.SCISSORS)) ||
                     (play1.equals(GameChoice.SCISSORS) && play2.equals(GameChoice.PAPER)) ||
                     (play1.equals(GameChoice.PAPER) && play2.equals(GameChoice.ROCK))) {
                 System.out.println(player1.getName() + " Won the match!");
-                tournamentRanking.add(player1.getName());
-                tournamentRanking.add(player2.getName());
+                tournamentUnRanked.add(player1.getName());
+                tournamentUnRanked.add(player2.getName());
 
                 break;
             } else {
                 System.out.println(player2.getName() + " Won the match!");
-                tournamentRanking.add(player2.getName());
-                tournamentRanking.add(player1.getName());
+                tournamentUnRanked.add(player2.getName());
+                tournamentUnRanked.add(player1.getName());
                 break;
             }
         }

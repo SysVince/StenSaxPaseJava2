@@ -5,6 +5,7 @@ public class Participant {
     private Playable playable;
     private int score = 0;
 
+
     public Participant(String name, Playable playable) {
         this.name = name;
         this.playable = playable;
@@ -22,7 +23,7 @@ public class Participant {
         return score;
     }
 
-    public void setScore(int score) {
+    public void addScore(int score) {
         this.score += score;
     }
     public void resetScore() {
