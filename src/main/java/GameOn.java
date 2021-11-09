@@ -5,25 +5,21 @@ import java.time.LocalDateTime;
 import java.util.*;
 import java.util.stream.Stream;
 
-public class GameOn extends Highscore{
+public class GameOn{
 
-    Highscore highscore;
+
     List<Participant> participants;
     List<Participant> participantsSorted = new ArrayList<>();
 
-
+    Highscore highscore = new Highscore();
 
     public GameOn(List<Participant> participants) {
         this.participants = participants;
-
     }
 
-    public void gameSetup(Highscore highscore) throws InterruptedException {
-        this.highscore = highscore;
-
+    public void gameSetup() throws InterruptedException {
 
         System.out.println("Welcome to Stone-Paper-Scissors Diamond Tournament!");
-
 
 
         System.out.println("****LET THE GAMES BEGIN!!****");
@@ -93,6 +89,9 @@ public class GameOn extends Highscore{
 
         highscore.rankPlayers(participantsSorted);
         participantsSorted.clear();
+    }
+    public void showHighscore(){
+        highscore.showTournamentHistory();
     }
 
 

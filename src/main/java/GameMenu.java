@@ -15,7 +15,6 @@ public class GameMenu {
 
     public void menu() throws InterruptedException {
         Scanner scanner = new Scanner(System.in);
-        Highscore highscore = new Highscore();
         Participant timerPro = new Participant("TimerPro", new DateTimerBotV2());
         Participant theRandomizer = new Participant("TheRandomizer", new RandomizerBot());
 
@@ -27,6 +26,7 @@ public class GameMenu {
 
         participants = Arrays.asList(timerPro, theRandomizer, player, theVocalist);
         GameOn gameOn = new GameOn(participants);
+        Highscore highscore = new Highscore(participants);
 
         boolean run = true;
 
@@ -38,10 +38,11 @@ public class GameMenu {
                     3: To Exit the game
                      """);
             switch (scanner.nextInt()) {
-                case 1 -> gameOn.gameSetup(highscore);
+                case 1 -> gameOn.gameSetup();
                 case 2 -> {
                     System.out.println("Showing highscore and stats");
-                    gameOn.showTournamentHistory(participants);
+                    highscore.getPlayerStats();
+                    gameOn.showHighscore();
 
                 }
                 case 3 -> {
