@@ -2,7 +2,7 @@ package aipersonality;
 
 import java.time.LocalTime;
 
-public class DateTimerBotV2 implements Playable {
+public class DateTimerBotV2 implements PlayStrategy {
 
 
     @Override

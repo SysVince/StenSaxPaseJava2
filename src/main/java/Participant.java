@@ -1,20 +1,18 @@
-import aipersonality.Playable;
+import aipersonality.PlayStrategy;
 
-import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.stream.IntStream;
 
 public class Participant {
     private String name;
-    private Playable playable;
+    private PlayStrategy playable;
     private int score = 0;
     List<Integer> playerRankings = new ArrayList<>();
 
 
 
-    public Participant(String name, Playable playable) {
+    public Participant(String name, PlayStrategy playable) {
         this.name = name;
         this.playable = playable;
     }
@@ -23,7 +21,7 @@ public class Participant {
         return name;
     }
 
-    public Playable getPlayable() {
+    public PlayStrategy getPlayable() {
         return playable;
     }
 
@@ -34,6 +32,7 @@ public class Participant {
     public void addScore(int score) {
         this.score += score;
     }
+
     public void resetScore() {
         this.score = 0;
     }
@@ -57,10 +56,6 @@ public class Participant {
                 .average()
                 .orElse(0.0)*100)/100.00;
         return doubleFormatted;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public List<Integer> getPlayerRankings() {

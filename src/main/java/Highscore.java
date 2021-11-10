@@ -6,13 +6,12 @@ import java.util.stream.Collectors;
 public class Highscore {
     Scanner scanner = new Scanner(System.in);
 
-    Map<String, List<String>> tournamentHistory = new TreeMap<>();
-    Map<Integer, String> tournamentHistory2 = new TreeMap<>();
-    List<String> tournamentSaves = new ArrayList<>();
+    Map<Integer, String> tournamentHistoryDates = new TreeMap<>();
+    List<String> tournamentHistoryRanks = new ArrayList<>();
 
     List<Participant> participants;
-    int id = 1;
-    int id2 = 1;
+
+    int idKey = 1;
 
     public Highscore(List<Participant> participants) {
         this.participants= participants;
@@ -27,13 +26,10 @@ public class Highscore {
                 .map(n -> String.valueOf(n))
                 .collect(Collectors.joining(" "));
 
-        tournamentSaves.add(tournamentRankedToString);
+        tournamentHistoryRanks.add(tournamentRankedToString);
 
-
-       // tournamentHistory.put(dateTimeToString(dateNow), new ArrayList<>(tournamentRanked));
-        tournamentHistory2.put(id2,dateTimeToString(dateNow));
-        id2++;
-       // tournamentHistory.clear();
+        tournamentHistoryDates.put(idKey,dateTimeToString(dateNow));
+        idKey++;
 
     }
 
@@ -49,7 +45,6 @@ public class Highscore {
                 .forEach(x -> System.out.println("Highscore om Ranking finns:" + x.getPlayerRankings() + x.getName()));
 
 
-
         addTournamentScore(tournamentRanked, LocalDateTime.now());
         tournamentRanked.clear();
 
@@ -59,46 +54,22 @@ public class Highscore {
 
     public String dateTimeToString(LocalDateTime dateNow) {
         DateTimeFormatter myFormat = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm");
-        //String dateTimeString = id + ": " + dateNow.format(myFormat);
         String dateTimeString =dateNow.format(myFormat);
-        id++;
         return dateTimeString;
     }
 
     public void showTournamentHistory() {
-        // tournamentHistory.forEach((key, value) -> System.out.println(key + ":" + value));
-        //getPlayerStats();
-       // System.out.println(tournamentHistory);
 
-//        for (Entry<String, String> entry : tree.entrySet()) {
-//            String key = entry.getKey();
-//            String value = entry.getValue();
-//
-//            System.out.printf("%s : %s\n", key, value);
-//        }
-
-//        for (Map.Entry<Integer, Map<String, List<String>>> entry : tournamentHistory2.entrySet()) {
-//            System.out.println("Key: " + entry.getKey() + ". Value: " + entry.getValue());
-//        }
-
-//        for (Map.Entry<K, V> entry : myMap.entrySet()) {
-//            System.out.println("Key: " + entry.getKey() + ". Value: " + entry.getValue());
-//        }
         System.out.println("Välj från listan");
 
-        for (Map.Entry<Integer, String> entry : tournamentHistory2.entrySet()) {
+        for (Map.Entry<Integer, String> entry : tournamentHistoryDates.entrySet()) {
             System.out.println(entry.getKey() + ": " + entry.getValue());
         }
         int userInput = scanner.nextInt();
-        System.out.println("Tournament resultatet för: "+tournamentHistory2.get(userInput));
-        for (String s : tournamentSaves.get(userInput-1).split(" ")) {
+        System.out.println("Tournament resultatet för: "+ tournamentHistoryDates.get(userInput));
+        for (String s : tournamentHistoryRanks.get(userInput-1).split(" ")) {
             System.out.println(s);
         }
-
-
-
-
-
 
     }
 
@@ -113,7 +84,6 @@ public class Highscore {
         }
 
     }
-
 
 }
 

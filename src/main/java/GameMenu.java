@@ -43,7 +43,6 @@ public class GameMenu {
                     System.out.println("Showing highscore and stats");
                     highscore.getPlayerStats();
                     gameOn.showHighscore();
-
                 }
                 case 3 -> {
                     System.out.println("Exiting game");
@@ -54,6 +53,6 @@ public class GameMenu {
 
         }
 
-
     }
+
 }

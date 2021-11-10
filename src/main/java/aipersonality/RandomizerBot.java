@@ -2,7 +2,7 @@ package aipersonality;
 
 import java.util.Random;
 
-public class RandomizerBot implements Playable {
+public class RandomizerBot implements PlayStrategy {
 
     @Override
     public GameChoice play() {

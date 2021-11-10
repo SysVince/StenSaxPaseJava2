@@ -5,8 +5,6 @@ public class Main {
         GameMenu gameMenu = new GameMenu();
         gameMenu.menu();
 
-
-
     }
 
 

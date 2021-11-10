@@ -2,7 +2,7 @@ package aipersonality;
 
 import java.util.Scanner;
 
-public class Player implements Playable{
+public class Player implements PlayStrategy {
     @Override
     public GameChoice play() {
         Scanner scanner = new Scanner(System.in);

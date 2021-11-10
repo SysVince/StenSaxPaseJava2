@@ -2,9 +2,8 @@ package aipersonality;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import java.util.stream.Stream;
 
-public class VocalistBot implements Playable {
+public class VocalistBot implements PlayStrategy {
     String playerName;
     int playerVocals = 0;
 

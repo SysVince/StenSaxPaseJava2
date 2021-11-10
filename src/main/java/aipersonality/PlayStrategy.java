@@ -1,6 +1,7 @@
 package aipersonality;
 
-public interface Playable {
+//Strategy Pattern
+public interface PlayStrategy {
 
     GameChoice play();
 

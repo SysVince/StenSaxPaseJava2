@@ -20,34 +20,29 @@ public class GameOn{
     public void gameSetup() throws InterruptedException {
 
         System.out.println("Welcome to Stone-Paper-Scissors Diamond Tournament!");
-
-
         System.out.println("****LET THE GAMES BEGIN!!****");
+        //Alla möter alla för att samla poäng
         playGame(participants.get(2), participants.get(0));
-//        Thread.sleep(500);
+        Thread.sleep(500);
         playGame(participants.get(2), participants.get(1));
-//        Thread.sleep(500);
+        Thread.sleep(500);
         playGame(participants.get(2), participants.get(3));
-//        Thread.sleep(500);
+        Thread.sleep(500);
         playGame(participants.get(3), participants.get(0));
-//        Thread.sleep(500);
+        Thread.sleep(500);
         playGame(participants.get(3), participants.get(1));
-//        Thread.sleep(500);
+        Thread.sleep(500);
         playGame(participants.get(0), participants.get(1));
 
-        //Ska fixas
-        System.out.println(participants.get(0).getName() + ":" + participants.get(0).getScore());
-        System.out.println(participants.get(1).getName() + ":" + participants.get(1).getScore());
-        System.out.println(participants.get(2).getName() + ":" + participants.get(2).getScore());
-        System.out.println(participants.get(3).getName() + ":" + participants.get(3).getScore());
 
 
-        //Sorterar för att matcha de med högst poäng mot varandra osv.
+        //Sorterar för att matcha de med högst som skall mötas i finalen samt om tredje plats.
         List<Participant> sortMatchup = participants
                 .stream()
                 .sorted(Comparator.comparing(Participant::getScore).reversed())
                 .toList();
 
+        //Resetar score för alla deltagare inför ny turnerning.
         for (Participant participant : participants ){
             participant.resetScore();
         }
@@ -56,36 +51,19 @@ public class GameOn{
         System.out.println("\nWelcome to the finals!\n");
         playOff(sortMatchup.get(0), sortMatchup.get(1));
 
-
         System.out.println("\nWelcome to the bronze place playoff!\n");
         playOff(sortMatchup.get(2), sortMatchup.get(3));
 
 
-
+        //Sparar varje spelares rank i varje turnering för framtida statistik.
+        System.out.println("\nTournament Results!");
         int j=1;
         for (Participant participant: participantsSorted){
             participant.addPlayerRank(j);
+            System.out.println(j+": "+participant.getName());
             j++;
         }
 
-// DESSA streams e bara tests...för att se
-
-//        participants.stream()
-//                .forEach(x->System.out.println("GameOnTEST om poängen e kvar:"+x.getScore()));
-
-
-//        int j=1;
-//        participantsSorted.stream()
-//                .forEach(x->x.addPlayerRank(j));
-
-//        participantsSorted.stream()
-//                .forEach(x->System.out.println("GameOn PartSorted om poäng e kvar:"+x.getPlayerRankings()+x.getName()));
-
-//        participants.stream()
-//                .forEach(x->System.out.println("testar highestrank finns:"+x.getHighestPlayerRank()+x.getName()));
-
-        //Ska fixas
-        participantsSorted.forEach(x -> System.out.println("participant sorted:"+x.getName()));
 
         highscore.rankPlayers(participantsSorted);
         participantsSorted.clear();
@@ -93,7 +71,6 @@ public class GameOn{
     public void showHighscore(){
         highscore.showTournamentHistory();
     }
-
 
 
     public void playGame(Participant player1, Participant player2) {
