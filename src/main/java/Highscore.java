@@ -50,7 +50,7 @@ public class Highscore {
         tournamentRanked.clear();
 
 
-        this.participants = participantsSorted;
+        //this.participants = participantsSorted;
     }
 
     public String dateTimeToString(LocalDateTime dateNow) {

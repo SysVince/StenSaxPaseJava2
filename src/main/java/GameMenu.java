@@ -42,11 +42,10 @@ public class GameMenu {
                 case 1 -> gameOn.gameSetup();
                 case 2 -> {
                     System.out.println("Showing highscore and stats");
-                   // gameOn.getHighscore().getPlayerStats(); //Funkar ej pga instans fails..
-                    highscore.getPlayerStats();
+                    gameOn.getHighscore().getPlayerStats();
                     gameOn.getHighscore().showTournamentHistory();
 
-                   // gameOn.showHighscore();
+
                 }
                 case 3 -> {
                     System.out.println("Exiting game");

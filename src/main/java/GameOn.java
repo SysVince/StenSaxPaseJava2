@@ -1,21 +1,20 @@
 import aipersonality.*;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
+
 import java.util.*;
-import java.util.stream.Stream;
+
 
 public class GameOn {
 
 
     List<Participant> participants;
     List<Participant> participantsSorted = new ArrayList<>();
-    Highscore highscore2;
-    Highscore highscore = new Highscore();
+    Highscore highscore;
+
 
     public GameOn(List<Participant> participants) {
         this.participants = participants;
-        this.highscore2 = new Highscore();
+        this.highscore = new Highscore(participants);
     }
 
     public void gameSetup() throws InterruptedException {
@@ -65,13 +64,10 @@ public class GameOn {
         }
 
 
-        highscore2.rankPlayers(participantsSorted);
+        highscore.rankPlayers(participantsSorted);
         participantsSorted.clear();
     }
 
-    public void showHighscore() {
-        highscore.showTournamentHistory();
-    }
 
 
     public void playGame(Participant player1, Participant player2) {
@@ -147,7 +143,7 @@ public class GameOn {
     }
 
     public Highscore getHighscore(){
-        return highscore2;
+        return highscore;
     }
 
 
