@@ -5,16 +5,17 @@ import java.time.LocalDateTime;
 import java.util.*;
 import java.util.stream.Stream;
 
-public class GameOn{
+public class GameOn {
 
 
     List<Participant> participants;
     List<Participant> participantsSorted = new ArrayList<>();
-
+    Highscore highscore2;
     Highscore highscore = new Highscore();
 
     public GameOn(List<Participant> participants) {
         this.participants = participants;
+        this.highscore2 = new Highscore();
     }
 
     public void gameSetup() throws InterruptedException {
@@ -35,7 +36,6 @@ public class GameOn{
         playGame(participants.get(0), participants.get(1));
 
 
-
         //Sorterar för att matcha de med högst som skall mötas i finalen samt om tredje plats.
         List<Participant> sortMatchup = participants
                 .stream()
@@ -43,7 +43,7 @@ public class GameOn{
                 .toList();
 
         //Resetar score för alla deltagare inför ny turnerning.
-        for (Participant participant : participants ){
+        for (Participant participant : participants) {
             participant.resetScore();
         }
 
@@ -57,18 +57,19 @@ public class GameOn{
 
         //Sparar varje spelares rank i varje turnering för framtida statistik.
         System.out.println("\nTournament Results!");
-        int j=1;
-        for (Participant participant: participantsSorted){
+        int j = 1;
+        for (Participant participant : participantsSorted) {
             participant.addPlayerRank(j);
-            System.out.println(j+": "+participant.getName());
+            System.out.println(j + ": " + participant.getName());
             j++;
         }
 
 
-        highscore.rankPlayers(participantsSorted);
+        highscore2.rankPlayers(participantsSorted);
         participantsSorted.clear();
     }
-    public void showHighscore(){
+
+    public void showHighscore() {
         highscore.showTournamentHistory();
     }
 
@@ -145,6 +146,25 @@ public class GameOn{
         }
     }
 
+    public Highscore getHighscore(){
+        return highscore2;
+    }
+
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

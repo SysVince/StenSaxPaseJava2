@@ -28,6 +28,7 @@ public class GameMenu {
         GameOn gameOn = new GameOn(participants);
         Highscore highscore = new Highscore(participants);
 
+
         boolean run = true;
 
         while (run) {
@@ -41,8 +42,11 @@ public class GameMenu {
                 case 1 -> gameOn.gameSetup();
                 case 2 -> {
                     System.out.println("Showing highscore and stats");
+                   // gameOn.getHighscore().getPlayerStats(); //Funkar ej pga instans fails..
                     highscore.getPlayerStats();
-                    gameOn.showHighscore();
+                    gameOn.getHighscore().showTournamentHistory();
+
+                   // gameOn.showHighscore();
                 }
                 case 3 -> {
                     System.out.println("Exiting game");

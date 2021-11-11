@@ -41,6 +41,7 @@ public class Highscore {
             j++;
         }
 
+        //Endast för att snabbt kunna se resultatet för varje turnering*
         participantsSorted.stream()
                 .forEach(x -> System.out.println("Highscore om Ranking finns:" + x.getPlayerRankings() + x.getName()));
 
@@ -60,13 +61,13 @@ public class Highscore {
 
     public void showTournamentHistory() {
 
-        System.out.println("Välj från listan");
+        System.out.println("Choose from the list");
 
         for (Map.Entry<Integer, String> entry : tournamentHistoryDates.entrySet()) {
             System.out.println(entry.getKey() + ": " + entry.getValue());
         }
         int userInput = scanner.nextInt();
-        System.out.println("Tournament resultatet för: "+ tournamentHistoryDates.get(userInput));
+        System.out.println("Tournament result for: "+ tournamentHistoryDates.get(userInput));
         for (String s : tournamentHistoryRanks.get(userInput-1).split(" ")) {
             System.out.println(s);
         }
@@ -76,10 +77,10 @@ public class Highscore {
     public void getPlayerStats() {
 
         for (Participant participant : participants) {
-            System.out.println("**********");
-            System.out.println(participant.getName() + " högsta placering:" + participant.getHighestPlayerRank());
-            System.out.println(participant.getName() + " snitt placering :" + participant.getAveragePlayerRank());
-            System.out.println(participant.getName() + " lägsta placering:" + participant.getLowestPlayerRank());
+            System.out.println("* * * * * * * * * *");
+            System.out.println(participant.getName() + " highest placement:" + participant.getHighestPlayerRank());
+            System.out.println(participant.getName() + " average placement:" + participant.getAveragePlayerRank());
+            System.out.println(participant.getName() + " lowest placement :" + participant.getLowestPlayerRank());
 
         }
 
