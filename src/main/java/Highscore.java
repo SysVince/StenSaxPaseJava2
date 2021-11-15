@@ -1,22 +1,18 @@
+import playersettings.Participant;
+
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
 import java.util.stream.Collectors;
 
 public class Highscore {
-    Scanner scanner = new Scanner(System.in);
-
-    Map<Integer, String> tournamentHistoryDates = new TreeMap<>();
-    List<String> tournamentHistoryRanks = new ArrayList<>();
-
-    List<Participant> participants;
-
-    int idKey = 1;
+    private List<Participant> participants;
+    private List<String> tournamentHistoryDates = new ArrayList<>();
+    private List<String> tournamentHistoryRanks = new ArrayList<>();
+    private int idTime = 1;
 
     public Highscore(List<Participant> participants) {
-        this.participants= participants;
-    }
-    public Highscore(){
+        this.participants = participants;
     }
 
 
@@ -28,47 +24,46 @@ public class Highscore {
 
         tournamentHistoryRanks.add(tournamentRankedToString);
 
-        tournamentHistoryDates.put(idKey,dateTimeToString(dateNow));
-        idKey++;
+        tournamentHistoryDates.add(idTime + ": " + dateTimeToString(dateNow));
+        idTime++;
 
     }
 
     public void rankPlayers(List<Participant> participantsSorted) {
         List<String> tournamentRanked = new ArrayList<>();
-        int j = 1;
+        int idRank = 1;
         for (Participant participant : participantsSorted) {
-            tournamentRanked.add(j + ":" + participant.getName());
-            j++;
+            tournamentRanked.add(idRank + ":" + participant.getName());
+            idRank++;
         }
 
-        //Endast för att snabbt kunna se resultatet för varje turnering*
+        //Endast för att snabbt kunna se resultatet för varje turnering* (debugging)
         participantsSorted.stream()
-                .forEach(x -> System.out.println("Highscore om Ranking finns:" + x.getPlayerRankings() + x.getName()));
+                .forEach(x -> System.out.println("Debugging to check all tournament scores:" + x.getPlayerRankings() + x.getName()));
 
 
         addTournamentScore(tournamentRanked, LocalDateTime.now());
         tournamentRanked.clear();
 
 
-        //this.participants = participantsSorted;
     }
 
     public String dateTimeToString(LocalDateTime dateNow) {
         DateTimeFormatter myFormat = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm");
-        String dateTimeString =dateNow.format(myFormat);
+        String dateTimeString = dateNow.format(myFormat);
         return dateTimeString;
     }
 
     public void showTournamentHistory() {
-
+        Scanner scanner = new Scanner(System.in);
         System.out.println("Choose from the list");
 
-        for (Map.Entry<Integer, String> entry : tournamentHistoryDates.entrySet()) {
-            System.out.println(entry.getKey() + ": " + entry.getValue());
-        }
-        int userInput = scanner.nextInt();
-        System.out.println("Tournament result for: "+ tournamentHistoryDates.get(userInput));
-        for (String s : tournamentHistoryRanks.get(userInput-1).split(" ")) {
+        tournamentHistoryDates.forEach(System.out::println);
+
+
+        int userInput = scanner.nextInt() - 1;
+        System.out.println("Tournament result for: " + tournamentHistoryDates.get(userInput));
+        for (String s : tournamentHistoryRanks.get(userInput).split(" ")) {
             System.out.println(s);
         }
 
@@ -81,6 +76,7 @@ public class Highscore {
             System.out.println(participant.getName() + " highest placement:" + participant.getHighestPlayerRank());
             System.out.println(participant.getName() + " average placement:" + participant.getAveragePlayerRank());
             System.out.println(participant.getName() + " lowest placement :" + participant.getLowestPlayerRank());
+
 
         }
 

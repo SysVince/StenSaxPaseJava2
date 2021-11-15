@@ -1,18 +1,18 @@
-import aipersonality.*;
+import playersettings.*;
 
 
 import java.util.*;
 
 
-public class GameOn {
+public class GameStart {
 
 
-    List<Participant> participants;
-    List<Participant> participantsSorted = new ArrayList<>();
-    Highscore highscore;
+    private List<Participant> participants;
+    private List<Participant> participantsSorted = new ArrayList<>();
+    private Highscore highscore;
 
 
-    public GameOn(List<Participant> participants) {
+    public GameStart(List<Participant> participants) {
         this.participants = participants;
         this.highscore = new Highscore(participants);
     }
@@ -63,11 +63,11 @@ public class GameOn {
             j++;
         }
 
-
+        //Denna lista (participantsSorted) används för att ge player poäng.
         highscore.rankPlayers(participantsSorted);
         participantsSorted.clear();
-    }
 
+    }
 
 
     public void playGame(Participant player1, Participant player2) {
@@ -142,7 +142,8 @@ public class GameOn {
         }
     }
 
-    public Highscore getHighscore(){
+    //Highscore class
+    public Highscore getHighscore() {
         return highscore;
     }
 

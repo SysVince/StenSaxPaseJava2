@@ -1,4 +1,6 @@
-import aipersonality.PlayStrategy;
+package playersettings;
+
+import playersettings.PlayStrategy;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -8,7 +10,7 @@ public class Participant {
     private String name;
     private PlayStrategy playable;
     private int score = 0;
-    List<Integer> playerRankings = new ArrayList<>();
+    private List<Integer> playerRankings = new ArrayList<>();
 
 
 
@@ -38,7 +40,8 @@ public class Participant {
     }
 
     public int getHighestPlayerRank() {
-        return Collections.max(playerRankings);
+
+        return Collections.min(playerRankings);
     }
 
     public void addPlayerRank(int playerRank) {
@@ -46,7 +49,7 @@ public class Participant {
     }
 
     public int getLowestPlayerRank() {
-        return Collections.min(playerRankings);
+        return Collections.max(playerRankings);
     }
 
     public double getAveragePlayerRank() {

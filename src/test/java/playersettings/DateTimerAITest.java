@@ -1,10 +1,10 @@
-package aipersonality;
+package playersettings;
 
 import org.junit.Ignore;
 import org.junit.Test;
 
-import static aipersonality.GameChoice.ROCK;
-import static aipersonality.GameChoice.SCISSORS;
+import static playersettings.GameChoice.ROCK;
+import static playersettings.GameChoice.SCISSORS;
 import static org.junit.Assert.*;
 
 public class DateTimerAITest {

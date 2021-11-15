@@ -1,4 +1,4 @@
-package aipersonality;
+package playersettings;
 
 public enum GameChoice {
     ROCK,

@@ -1,4 +1,4 @@
-package aipersonality;
+package playersettings;
 
 import java.util.Scanner;
 

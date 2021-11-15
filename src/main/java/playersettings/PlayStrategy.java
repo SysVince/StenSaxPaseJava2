@@ -1,4 +1,4 @@
-package aipersonality;
+package playersettings;
 
 //Strategy Pattern
 public interface PlayStrategy {
