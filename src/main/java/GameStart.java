@@ -8,6 +8,7 @@ public class GameStart {
 
 
     private List<Participant> participants;
+
     private List<Participant> participantsSorted = new ArrayList<>();
     private Highscore highscore;
 
@@ -93,6 +94,7 @@ public class GameStart {
             player2.addScore(3);
         }
     }
+
 
     public void playOff(Participant player1, Participant player2) {
         int tries = 0;

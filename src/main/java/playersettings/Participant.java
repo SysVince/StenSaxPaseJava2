@@ -13,7 +13,6 @@ public class Participant {
     private List<Integer> playerRankings = new ArrayList<>();
 
 
-
     public Participant(String name, PlayStrategy playable) {
         this.name = name;
         this.playable = playable;
@@ -57,7 +56,7 @@ public class Participant {
         double doubleFormatted = Math.round(playerRankings.stream()
                 .mapToDouble(x -> x)
                 .average()
-                .orElse(0.0)*100)/100.00;
+                .orElse(0.0) * 100) / 100.00;
         return doubleFormatted;
     }
 

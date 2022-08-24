@@ -22,6 +22,7 @@ public class Highscore {
                 .map(n -> String.valueOf(n))
                 .collect(Collectors.joining(" "));
 
+
         tournamentHistoryRanks.add(tournamentRankedToString);
 
         tournamentHistoryDates.add(idTime + ": " + dateTimeToString(dateNow));
@@ -63,20 +64,20 @@ public class Highscore {
 
         int userInput = scanner.nextInt() - 1;
         System.out.println("Tournament result for: " + tournamentHistoryDates.get(userInput));
-        for (String s : tournamentHistoryRanks.get(userInput).split(" ")) {
+        for (String s : tournamentHistoryRanks.get(userInput).split("")) {
             System.out.println(s);
         }
 
     }
 
-    public void getPlayerStats() {
+
+    public void showPlayerStats() {
 
         for (Participant participant : participants) {
             System.out.println("* * * * * * * * * *");
             System.out.println(participant.getName() + " highest placement:" + participant.getHighestPlayerRank());
             System.out.println(participant.getName() + " average placement:" + participant.getAveragePlayerRank());
             System.out.println(participant.getName() + " lowest placement :" + participant.getLowestPlayerRank());
-
 
         }
 

@@ -38,7 +38,7 @@ public class GameMenu {
                 case 1 -> gameStart.gameSetup();
                 case 2 -> {
                     System.out.println("Showing highscore and stats");
-                    gameStart.getHighscore().getPlayerStats();
+                    gameStart.getHighscore().showPlayerStats();
                     gameStart.getHighscore().showTournamentHistory();
                 }
                 case 3 -> {
