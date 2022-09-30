@@ -12,16 +12,16 @@ public class DateTimerAITest {
     @Test
     @Ignore
     public void testDateTimer() {
-        DateTimerBot dateTimerBot = new DateTimerBot();
-        GameChoice gameChoice = dateTimerBot.play();
+        DateTimerBotOLD dateTimerBotOLD = new DateTimerBotOLD();
+        GameChoice gameChoice = dateTimerBotOLD.play();
         assertEquals(SCISSORS, gameChoice);
     }
 
     @Test
     @Ignore
     public void testDateTimer2() {
-        DateTimerBotV2 dateTimerBotV2 = new DateTimerBotV2();
-        GameChoice gameChoice = dateTimerBotV2.play();
+        DateTimerBot dateTimerBot = new DateTimerBot();
+        GameChoice gameChoice = dateTimerBot.play();
         assertEquals(ROCK, gameChoice);
     }
 

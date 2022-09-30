@@ -9,11 +9,12 @@ public class DateTimerBot implements PlayStrategy {
     public GameChoice play() {
         LocalTime localTime = LocalTime.now();
         int minute = localTime.getMinute();
-        if (minute < 20) {
+        if (minute % 3 == 0) {
             return GameChoice.ROCK;
-        } else if (minute < 40) {
+        } else if (minute % 3 == 1) {
             return GameChoice.PAPER;
-        } else return GameChoice.SCISSORS;
+        } else return GameChoice.SCISSORS; //minute % 3 == 2
+
 
     }
 }

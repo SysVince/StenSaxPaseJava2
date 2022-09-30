@@ -38,7 +38,7 @@ public class Highscore {
             idRank++;
         }
 
-        //Endast för att snabbt kunna se resultatet för varje turnering* (debugging)
+        //Endast för att snabbt kunna se resultatet för varje turnering (debugging)
         participantsSorted.stream()
                 .forEach(x -> System.out.println("Debugging to check all tournament scores:" + x.getPlayerRankings() + x.getName()));
 
@@ -51,8 +51,7 @@ public class Highscore {
 
     public String dateTimeToString(LocalDateTime dateNow) {
         DateTimeFormatter myFormat = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm");
-        String dateTimeString = dateNow.format(myFormat);
-        return dateTimeString;
+        return dateNow.format(myFormat);
     }
 
     public void showTournamentHistory() {
@@ -64,7 +63,7 @@ public class Highscore {
 
         int userInput = scanner.nextInt() - 1;
         System.out.println("Tournament result for: " + tournamentHistoryDates.get(userInput));
-        for (String s : tournamentHistoryRanks.get(userInput).split("")) {
+        for (String s : tournamentHistoryRanks.get(userInput).split(" ")) {
             System.out.println(s);
         }
 
@@ -80,6 +79,7 @@ public class Highscore {
             System.out.println(participant.getName() + " lowest placement :" + participant.getLowestPlayerRank());
 
         }
+        System.out.println(" ");
 
     }
 

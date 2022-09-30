@@ -53,11 +53,10 @@ public class Participant {
 
     public double getAveragePlayerRank() {
 
-        double doubleFormatted = Math.round(playerRankings.stream()
+        return Math.round(playerRankings.stream()
                 .mapToDouble(x -> x)
                 .average()
                 .orElse(0.0) * 100) / 100.00;
-        return doubleFormatted;
     }
 
     public List<Integer> getPlayerRankings() {

@@ -7,12 +7,10 @@ import java.util.Scanner;
 
 public class GameMenu {
 
-    private List<Participant> participants = new ArrayList<>();
-
 
     public void menu() throws InterruptedException {
         Scanner scanner = new Scanner(System.in);
-        Participant timerPro = new Participant("TimerPro", new DateTimerBotV2());
+        Participant timerPro = new Participant("TimerPro", new DateTimerBot());
         Participant theRandomizer = new Participant("TheRandomizer", new RandomizerBot());
 
         System.out.println("Stone Paper Scissors Game 3000");
@@ -21,7 +19,7 @@ public class GameMenu {
         Participant player = new Participant(playerName, new Player());
         Participant theVocalist = new Participant("TheVocalist", new VocalistBot(playerName));
 
-        participants = Arrays.asList(timerPro, theRandomizer, player, theVocalist);
+        List<Participant> participants = Arrays.asList(timerPro, theRandomizer, player, theVocalist);
         GameStart gameStart = new GameStart(participants);
 
 
